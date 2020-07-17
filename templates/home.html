@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center {
+            height: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: deepskyblue;
+        }
+        form a, form [type=submit]{
+            padding: 12px 24px;
+            line-height: 1.5;
+            color: rgb(50, 220, 132);
+            border: 1px solid transparent;
+            border-radius: 8px;
+            font-weight: 500;
+            outline: none;
+        }
+        form a, form [type=submit]:hover{
+            background-color: rgb(109, 211, 175);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <form action="" method="post">
+            {% csrf_token %}
+            {% if moncash %}
+            <p><a href="{{generate}}">Pay here</a></p>
+            {% else %}
+            <p><input type="submit" value="Process to paiement"></p>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>
